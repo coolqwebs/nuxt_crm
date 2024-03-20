@@ -19,6 +19,7 @@ useSeoMeta({
 
 const dragCardRef = ref<ICard | null>(null)
 const sourceColumnRef = ref<IColumn | null>(null)
+const dealStore = useDealSlideStore()
 
 
 const { mutate } = useMutation({
@@ -61,7 +62,7 @@ function handleDrop(targetColumn: IColumn) {
         <div>
           <UiCard v-for="card in column.items" :key="card.id" class="mb-3" draggable="true"
             @dragstart="() => handleDragStart(card, column)">
-            <UiCardHeader role="button" @click="console.log('hui');">
+            <UiCardHeader role="button" @click="dealStore.set(card)">
               <UiCardTitle>{{ card.name }}</UiCardTitle>
               <UiCardDescription>{{ convertCurrency(card.price) }}</UiCardDescription>
             </UiCardHeader>
@@ -71,5 +72,6 @@ function handleDrop(targetColumn: IColumn) {
         </div>
       </div>
     </div>
+    <KanbanSlideover />
   </div>
 </template>

@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxt/image",
-    "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
     [
       "@nuxtjs/google-fonts",
@@ -24,7 +23,7 @@ export default defineNuxtConfig({
         autoImports: true,
       },
     ],
-    ,
+    "@nuxt/ui",
   ],
   shadcn: {
     prefix: "ui",

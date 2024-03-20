@@ -13,7 +13,7 @@ export function useKanbanQuery() {
     select(data) {
       const newBoard = KANBAN_DATA.map((col) => ({
         ...col,
-        items: [] as IDeal[],
+        items: [] as ICard[],
       }));
       const deals = data.documents as unknown as IDeal[];
 
