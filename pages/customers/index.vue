@@ -18,7 +18,7 @@ const { data: customers, isLoading, isFetched } = useQuery({
 <template>
   <div class="p-10">
     <h1 class="font-bold text-2xl mb-2">Our Customers</h1>
-    <div v-if="isLoading && !isFetched">Loadind...</div>
+    <div v-if="isLoading && !isFetched">Loading...</div>
     <UiTable v-else>
       <UiTableHeader>
         <UiTableRow>
@@ -32,7 +32,8 @@ const { data: customers, isLoading, isFetched } = useQuery({
         <UiTableRow v-for="customer in (customers?.documents as unknown as ICustomer[])" :key="customer.$id">
           <UiTableCell>
             <NuxtLink :href="`/customers/edit/${customer.$id}`">
-              <NuxtImg :src="customer.avatart" :alt="customer.name" width="50" height="50" class="rounded-full" />
+              <NuxtImg :src="customer.avatart" :alt="customer.name" width="50px" height="50px"
+                class="rounded-full object-contain" />
             </NuxtLink>
           </UiTableCell>
           <UiTableCell class="font-medium">
